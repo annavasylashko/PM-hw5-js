@@ -24,23 +24,13 @@
   <title>React App</title>
 
   <script type="text/javascript">
-    //--Replace h1 tag with h2 tag 
-    function replaceH1() {
-      let regexp = /h1/g;
-
-      let newHTML = document.getElementsByTagName("body")[0].innerHTML.replace(regexp, 'h2')
-
-      document.getElementsByTagName("body")[0].innerHTML = newHTML
-    }
-
-
     //--Find script tags--
 
     let str = document.documentElement.innerHTML
 
     let regexp_script = /<script[\s\S]*?>[\s\S]*?<\/script>/gi
     let find_script = str.match(regexp_script)
-    alert(find_script)
+    alert("All script tags in this file: " + find_script)
 
     //--Find hex colors and phone numbers
 
@@ -54,10 +44,18 @@
         let colors = str.match(regexp)
         let contacts = str.match(regexp1)
 
-        alert([...new Set(colors)].join(", "))
-        alert([...new Set(contacts)].join(", "))
+        alert("Colors in this HTML file: " + [...new Set(colors)].join(", "))
+        alert("Phone numbers in this HTML file: " + [...new Set(contacts)].join(", "))
     }
 
+    //--Replace h1 tag with h2 tag 
+    function replaceH1() {
+      let regexp = /h1/g;
+
+      let newHTML = document.getElementsByTagName("body")[0].innerHTML.replace(regexp, 'h2')
+
+      document.getElementsByTagName("body")[0].innerHTML = newHTML
+    }
   </script>
 
   <style>
